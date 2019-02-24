@@ -2,29 +2,32 @@ package bookStore;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
+import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class Book {
-
+    int id;
     String title;
     int isbn;
     int year;
-    static String file = "A:\\java\\\\books.csv";
+    String bazel;
+    List<Author> authorsOfBook;
+    Category category;
+    static String file = "A:\\java\\books1.csv";
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", isbn=" + isbn +
-                ", year=" + year +
-                '}';
-    }
-
-    public Book(String title, int isbn, int year) {
+    public Book(int id, String title, int isbn, int year, String bazel, List<Author> authorsOfBook, Category category) {
+        this.id = id;
         this.title = title;
         this.isbn = isbn;
         this.year = year;
+        this.bazel = bazel;
+        this.authorsOfBook = authorsOfBook;
+        this.category = category;
     }
+
 
 }

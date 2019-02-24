@@ -10,6 +10,9 @@ import java.util.List;
 public class SCVUtility {
 
     private static SCVUtility instance;
+    List<Book> books = new ArrayList<>();
+    List<Author> authors = new ArrayList<>();
+    List<Category> categories = new ArrayList<>();
 
     private SCVUtility() {
 
@@ -26,11 +29,37 @@ public class SCVUtility {
         return instance;
     }
 
-    List<String[]> data = new ArrayList<>();
-    List<Book> books = new ArrayList<>();
+    public Category getCategoryById(int idFromFile) {
+        for (Category category : categories) {
+            if (category.id == idFromFile) {
+                return category;
+            }
+        }
+        return null;
+    }
 
-    public void addBook(Book book) {
-        books.add(book);
+    public List<Author> getAuthorsById(List<Integer> authorsId) {
+        List<Author> authorsOfBook = new ArrayList<>();
+        for (Integer integer : authorsId) {
+            for (Author author : authors) {
+                if (author.id == integer) {
+                    authorsOfBook.add(author);
+                }
+            }
+        }
+//        for (Author author : authors) {
+//            for (Integer i : authorsId) {
+//                if (author.id == i) {
+//                    authorsOfBook.add(author);
+//                }
+//            }
+//        }
+        return authorsOfBook;
+    }
+
+    public void showAutors() {
+        for (Author author : authors)
+            System.out.println(author);
     }
 
     public void showBooks() {
@@ -38,8 +67,13 @@ public class SCVUtility {
             System.out.println(book);
     }
 
-    public List<String[]> read(String file) {
+    public void showCategories() {
+        for (Category category : categories)
+            System.out.println(category);
+    }
 
+    public List<String[]> readAutors(String file) {
+        List<String[]> data = new ArrayList<>();
         String dataRaw;
 
         try {
@@ -47,9 +81,61 @@ public class SCVUtility {
             while ((dataRaw = br.readLine()) != null) {
                 String[] dataInProces = dataRaw.split(";");
                 data.add(dataInProces);
-                Book book = new Book(dataInProces[0], Integer.parseInt(dataInProces[1]), Integer.parseInt(dataInProces[2]));
-                addBook(book);
+                Author author = new Author(Integer.parseInt(dataInProces[0]), dataInProces[1], Integer.parseInt(dataInProces[2]));
+                authors.add(author);
 
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public List<String[]> readCategories(String file) {
+        List<String[]> data = new ArrayList<>();
+        String dataRaw;
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            while ((dataRaw = br.readLine()) != null) {
+                String[] dataInProces = dataRaw.split(";");
+                data.add(dataInProces);
+                Category category = new Category(Integer.parseInt(dataInProces[0]),
+                        dataInProces[1], Integer.parseInt(dataInProces[2]));
+                categories.add(category);
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public List<String[]> readBooks(String file) {
+        List<String[]> data = new ArrayList<>();
+        String dataRaw;
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            while ((dataRaw = br.readLine()) != null) {
+                List<Integer> authorsId = new ArrayList<>();
+                String[] dataInProces = dataRaw.split(";");
+                data.add(dataInProces);
+
+                for (String i : dataInProces[5].split(",")) {
+                    authorsId.add(Integer.parseInt(i));
+                }
+
+                Book book = new Book(Integer.parseInt(dataInProces[0]), dataInProces[1],
+                        Integer.parseInt(dataInProces[2]), Integer.parseInt(dataInProces[3]),
+                        dataInProces[4], getAuthorsById(authorsId),
+                        getCategoryById((Integer.parseInt(dataInProces[6]))));
+                books.add(book);
+                System.out.println(book.getAuthorsOfBook());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
