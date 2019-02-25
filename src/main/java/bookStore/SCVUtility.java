@@ -47,13 +47,6 @@ public class SCVUtility {
                 }
             }
         }
-//        for (Author author : authors) {
-//            for (Integer i : authorsId) {
-//                if (author.id == i) {
-//                    authorsOfBook.add(author);
-//                }
-//            }
-//        }
         return authorsOfBook;
     }
 
@@ -72,77 +65,87 @@ public class SCVUtility {
             System.out.println(category);
     }
 
-    public List<String[]> readAutors(String file) {
-        List<String[]> data = new ArrayList<>();
+    public void readAutors(String file) {
         String dataRaw;
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            while ((dataRaw = br.readLine()) != null) {
-                String[] dataInProces = dataRaw.split(";");
-                data.add(dataInProces);
-                Author author = new Author(Integer.parseInt(dataInProces[0]), dataInProces[1], Integer.parseInt(dataInProces[2]));
-                authors.add(author);
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                while ((dataRaw = br.readLine()) != null) {
+                    String[] dataInProces = dataRaw.split(";");
+                    Author author = new Author(Integer.parseInt(dataInProces[0]), dataInProces[1], Integer.parseInt(dataInProces[2]));
+                    authors.add(author);
 
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
-
-    public List<String[]> readCategories(String file) {
-        List<String[]> data = new ArrayList<>();
-        String dataRaw;
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            while ((dataRaw = br.readLine()) != null) {
-                String[] dataInProces = dataRaw.split(";");
-                data.add(dataInProces);
-                Category category = new Category(Integer.parseInt(dataInProces[0]),
-                        dataInProces[1], Integer.parseInt(dataInProces[2]));
-                categories.add(category);
-
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
-
-    public List<String[]> readBooks(String file) {
-        List<String[]> data = new ArrayList<>();
-        String dataRaw;
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            while ((dataRaw = br.readLine()) != null) {
-                List<Integer> authorsId = new ArrayList<>();
-                String[] dataInProces = dataRaw.split(";");
-                data.add(dataInProces);
-
-                for (String i : dataInProces[5].split(",")) {
-                    authorsId.add(Integer.parseInt(i));
                 }
-
-                Book book = new Book(Integer.parseInt(dataInProces[0]), dataInProces[1],
-                        Integer.parseInt(dataInProces[2]), Integer.parseInt(dataInProces[3]),
-                        dataInProces[4], getAuthorsById(authorsId),
-                        getCategoryById((Integer.parseInt(dataInProces[6]))));
-                books.add(book);
-                System.out.println(book.getAuthorsOfBook());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return data;
+
+    }
+
+    public void reafFiles(DataType dataType, String file) {
+        switch (dataType) {
+            case AUTHOR:
+                readAutors(Author.file);
+                break;
+            case CATEGORY:
+                readCategories(Category.file);
+                break;
+            case BOOK:
+                readBooks(Book.file);
+                break;
+        }
+
+    }
+
+    public void readCategories(String file) {
+        String dataRaw;
+
+        try {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                while ((dataRaw = br.readLine()) != null) {
+                    String[] dataInProces = dataRaw.split(";");
+                    Category category = new Category(Integer.parseInt(dataInProces[0]),
+                            dataInProces[1], Integer.parseInt(dataInProces[2]));
+                    categories.add(category);
+
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void readBooks(String file) {
+        String dataRaw;
+
+        try {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                while ((dataRaw = br.readLine()) != null) {
+                    List<Integer> authorsId = new ArrayList<>();
+                    String[] dataInProces = dataRaw.split(";");
+
+                    for (String i : dataInProces[5].split(",")) {
+                        authorsId.add(Integer.parseInt(i));
+                    }
+
+                    Book book = new Book(Integer.parseInt(dataInProces[0]), dataInProces[1],
+                            Integer.parseInt(dataInProces[2]), Integer.parseInt(dataInProces[3]),
+                            dataInProces[4], getAuthorsById(authorsId),
+                            getCategoryById((Integer.parseInt(dataInProces[6]))));
+                    books.add(book);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
