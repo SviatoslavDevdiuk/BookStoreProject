@@ -11,7 +11,7 @@ public class Author {
     int id;
     String fullName;
     int age;
-    public static String file = "A:\\java\\\\authors.csv";
+    public static final String FILE = "A:\\java\\\\authors.csv";
 
     public Author(int id, String fullName, int age) {
         this.id = id;

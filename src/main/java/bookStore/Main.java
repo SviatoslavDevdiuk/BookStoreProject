@@ -6,13 +6,9 @@ public class Main {
 
         Menu menu = new Menu();
         SCVUtility scvUtility = SCVUtility.getInstance();
-        scvUtility.reafFiles(DataType.AUTHOR, Author.file);
-        scvUtility.reafFiles(DataType.CATEGORY, Category.file);
-        scvUtility.reafFiles(DataType.BOOK, Book.file);
-//        scvUtility.showCategories();
-//        scvUtility.readCategories(Category.file);
-        scvUtility.showAutors();
-        scvUtility.showCategories();
+        scvUtility.readFiles(DataType.AUTHOR, Author.FILE);
+        scvUtility.readFiles(DataType.CATEGORY, Category.FILE);
+        scvUtility.readFiles(DataType.BOOK, Book.FILE);
         scvUtility.showBooks();
         menu.showMenu();
         menu.userInput();

@@ -1,5 +1,5 @@
 package bookStore;
 
 public enum DataType {
-    AUTHOR, CATEGORY, BOOK;
+    AUTHOR, CATEGORY, BOOK
 }

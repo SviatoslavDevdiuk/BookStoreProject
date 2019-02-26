@@ -17,7 +17,7 @@ public class Book {
     String bazel;
     List<Author> authorsOfBook;
     Category category;
-    static String file = "A:\\java\\books1.csv";
+    public static final String FILE = "A:\\java\\books1.csv";
 
     public Book(int id, String title, int isbn, int year, String bazel, List<Author> authorsOfBook, Category category) {
         this.id = id;

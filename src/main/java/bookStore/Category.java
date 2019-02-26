@@ -1,13 +1,17 @@
 package bookStore;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
+@Getter
+@Setter
 @ToString
 public class Category {
     int id;
     String name;
     int priority;
-    public static String file = "A:\\java\\\\categories.csv";
+    public static final String FILE = "A:\\java\\\\categories.csv";
 
     public Category(int id, String name, int priority) {
         this.id = id;
