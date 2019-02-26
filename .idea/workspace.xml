@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4d7fdb63-bdd9-4704-8c1f-ce04dbb3bbc9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookStore/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookStore/Author.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookStore/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookStore/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookStore/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookStore/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookStore/DataType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookStore/DataType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookStore/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookStore/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookStore/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookStore/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookStore/SCVUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookStore/SCVUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookStore/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookStore/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookStore/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookStore/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookStore/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookStore/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookStore/SCVUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookStore/SCVUtility.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,14 +41,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="4410" />
-          <entry key="txt" value="41" />
+          <entry key="txt" value="134" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="4410" />
-          <entry key="PLAIN_TEXT" value="41" />
+          <entry key="PLAIN_TEXT" value="134" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -68,7 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -98,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/SCVUtility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="-2108">
               <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -113,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="323">
               <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -228,7 +225,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551157361647" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551158093607" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -282,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551118893052</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added two methods for sorting books and cleaned up the code a little bit.">
+      <created>1551157579613</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1551157579613</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -304,11 +308,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32907802" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32907802" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="SonarLint" order="11" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="SonarLint" order="11" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -326,7 +330,8 @@
     <MESSAGE value="first sollution" />
     <MESSAGE value="first solution" />
     <MESSAGE value="add readFile method" />
-    <option name="LAST_COMMIT_MESSAGE" value="add readFile method" />
+    <MESSAGE value="Added two methods for sorting books and cleaned up the code a little bit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added two methods for sorting books and cleaned up the code a little bit." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -409,19 +414,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="323">
           <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -436,16 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/SCVUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -453,10 +438,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bookStore/SCVUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2108">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

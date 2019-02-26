@@ -131,7 +131,7 @@ public class SCVUtility {
         }
     }
 
-    public void getBookByAuthorId(int authorId) {
+    public void filterByAuthor(int authorId) {
         List<Book> booksOfTheAuthor = new ArrayList<>();
         for (Book book : books) {
             for (Author author : book.authorsOfBook) {
@@ -143,10 +143,10 @@ public class SCVUtility {
         booksOfTheAuthor.forEach(book -> System.out.println(book.title));
     }
 
-    public void sortByCategory(int j) {
+    public void filterByCategory(int categoryId) {
         List<Book> booksOfTheCategory = new ArrayList<>();
         for (Book book : books) {
-            if (book.category.id == j) {
+            if (book.category.id == categoryId) {
                 booksOfTheCategory.add(book);
             }
         }

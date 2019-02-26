@@ -11,7 +11,7 @@ public class Category {
     int id;
     String name;
     int priority;
-    public static final String FILE = "A:\\java\\\\categories.csv";
+    public static final String FILE = "A:\\java\\categories.csv";
 
     public Category(int id, String name, int priority) {
         this.id = id;

@@ -26,15 +26,15 @@ public class Menu {
             } else if (i == 2) {
                 scvUtility.showBooks();
             } else if (i == 3) {
-                System.out.println("Choose author");
+                System.out.println("Choose author:");
                 scvUtility.showAuthors();
                 int j = scanner.nextInt();
-                scvUtility.getBookByAuthorId(j);
+                scvUtility.filterByAuthor(j);
             } else if (i == 4) {
-                System.out.println("Choose category");
+                System.out.println("Choose category:");
                 scvUtility.showCategories();
                 int j = scanner.nextInt();
-                scvUtility.sortByCategory(j);
+                scvUtility.filterByCategory(j);
             } else if (i == 5) {
                 System.out.println("Good bye!");
                 break;
