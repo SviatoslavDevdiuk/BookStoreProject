@@ -1,5 +1,6 @@
 package bookStore;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -17,31 +18,44 @@ public class Menu {
     }
 
     public void userInput() {
-        Scanner scanner = new Scanner(System.in);
-        int i = scanner.nextInt();
 
-        while (true) {
-            if (i == 1) {
-                showContact();
-            } else if (i == 2) {
-                scvUtility.showBooks();
-            } else if (i == 3) {
-                System.out.println("Choose author:");
-                scvUtility.showAuthors();
-                int j = scanner.nextInt();
-                scvUtility.filterByAuthor(j);
-            } else if (i == 4) {
-                System.out.println("Choose category:");
-                scvUtility.showCategories();
-                int j = scanner.nextInt();
-                scvUtility.filterByCategory(j);
-            } else if (i == 5) {
-                System.out.println("Good bye!");
-                break;
+        int i;
+        try {
+            i = input();
+            while (true) {
+                if (i == 1) {
+                    showContact();
+                } else if (i == 2) {
+                    scvUtility.showBooks();
+                } else if (i == 3) {
+                    System.out.println("Choose author:");
+                    scvUtility.showAuthors();
+                    int j = input();
+                    scvUtility.filterByAuthor(j);
+                } else if (i == 4) {
+                    System.out.println("Choose category:");
+                    scvUtility.showCategories();
+                    int j = input();
+                    scvUtility.filterByCategory(j);
+                } else if (i == 5) {
+                    System.out.println("Good bye!");
+                    break;
+                }
+                i = input();
             }
-            i = scanner.nextInt();
-        }
+        }catch (InputMismatchException e){
+        System.out.println("Please enter a number!");
+//        return input();       can't use the method from catch block
+    }
 
+
+}
+
+    private int input() {
+        Scanner scanner = new Scanner(System.in);
+        int i;
+        i = scanner.nextInt();
+        return i;
     }
 }
 

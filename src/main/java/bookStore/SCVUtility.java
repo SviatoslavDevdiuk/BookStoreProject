@@ -1,5 +1,11 @@
 package bookStore;
 
+import bookStore.model.Author;
+import bookStore.model.Book;
+import bookStore.model.Category;
+import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,7 +19,7 @@ public class SCVUtility {
     private List<Author> authors = new ArrayList<>();
     private List<Category> categories = new ArrayList<>();
     private String dataRaw;
-
+    Logger logger = LogManager.getLogger(SCVUtility.class.getName());
 
     private SCVUtility() {
 
@@ -52,42 +58,45 @@ public class SCVUtility {
     }
 
     public void readFiles(DataType dataType, String file) {
-        switch (dataType) {
-            case AUTHOR:
-                readAuthors(file);
-                break;
-            case CATEGORY:
-                readCategories(file);
-                break;
-            case BOOK:
-                readBooks(file);
-                break;
-        }
+
+
+            switch (dataType) {
+                case AUTHOR:
+                    org.apache.log4j.BasicConfigurator.configure();
+                    readAuthors(file);
+                    break;
+                case CATEGORY:
+                    readCategories(file);
+                    break;
+                case BOOK:
+                    readBooks(file);
+                    break;
+            }
+
+
     }
 
     public void showAuthors() {
-        int counter = 1;
-        for (Author author : authors) {
-            System.out.println(counter + " " + author.fullName);
-            counter++;
-        }
 
+        for (Author author : authors) {
+            System.out.println(author.id + " " + author.fullName);
+        }
     }
 
     public void showBooks() {
-        for (Book book : books)
-            System.out.println(book.title);
+        for (Book book : books) {
+            System.out.println(book.id + " " + book.title);
+        }
     }
 
     public void showCategories() {
-        int counter = 1;
         for (Category category : categories) {
-            System.out.println(counter + " " + category.name);
-            counter++;
+            System.out.println(category.id + " " + category.name);
         }
     }
 
     private void readAuthors(String file) {
+
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((dataRaw = br.readLine()) != null) {
                 String[] dataInProces = dataRaw.split(";");
@@ -95,7 +104,7 @@ public class SCVUtility {
                 authors.add(author);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.ERROR,"There is a problem with reading AUTHORS file");
         }
     }
 
@@ -108,7 +117,7 @@ public class SCVUtility {
                 categories.add(category);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.ERROR,"There is a problem with reading CATEGORY file");
         }
     }
 
@@ -117,8 +126,8 @@ public class SCVUtility {
             while ((dataRaw = br.readLine()) != null) {
                 List<Integer> authorsId = new ArrayList<>();
                 String[] dataInProces = dataRaw.split(";");
-                for (String i : dataInProces[5].split(",")) {
-                    authorsId.add(Integer.parseInt(i));
+                for (String authorIDs : dataInProces[5].split(",")) {
+                    authorsId.add(Integer.parseInt(authorIDs));
                 }
                 Book book = new Book(Integer.parseInt(dataInProces[0]), dataInProces[1],
                         Integer.parseInt(dataInProces[2]), Integer.parseInt(dataInProces[3]),
@@ -127,7 +136,7 @@ public class SCVUtility {
                 books.add(book);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.ERROR,"There is a problem with reading BOOK file");
         }
     }
 
